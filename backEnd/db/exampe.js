@@ -1,12 +1,15 @@
 import { Client } from 'pg';
+import dotenv from 'dotenv';
 
 // Configuración de la conexión
+dotenv.config();
+
 const client = new Client({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'postgres',
-    password: '',
-    port: 5432,
+    user: process.env.USER,
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD,
+    port: process.env.PORT,
 });
 
 async function main() {
